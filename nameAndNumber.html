@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<h1>Kylan Parayao</h1>
+<h2>Douglas Adams Page</h2>
+  <head lang="en">
+    <link rel="stylesheet" href="object.css">
+  <meta charset="UTF-8">
+  <body id="bod">
+      What is your name? <input type="text" id="user_name" value = "Enter name here"/><br><br>
+      Write a number <input type="number" id="initial_number" value="user_number"/><br><br>
+      <button id="submit">Submit</button><br><br>
+
+      <script type="text/javascript">
+          document.getElementById('submit').onclick = function (){
+            var num = document.getElementById("initial_number").value;
+            createNewBox(num)
+          };
+
+          function createNewBox(x) {
+              var div = document.createElement("div");
+              var newParagraph = document.createElement("p");
+              var newMessage = "Your favorite number saw the secret of the universe and now it is: " + (x * 42);
+              var nodeToPaint = document.createTextNode(newMessage);
+              newParagraph.appendChild(nodeToPaint);
+              div.appendChild(newParagraph);
+              div.setAttribute("id", x);
+              var element = document.getElementById("bod");
+              element.appendChild(div);
+              createLink(x);
+          }
+          function createLink(wordInTheLink) {
+            var homeLink = document.createElement('a');
+            var personsName = document.getElementById("user_name").value;
+
+            var l = personsName + ", click here to go back to the main page";
+            var linkText = document.createTextNode(l);
+            homeLink.appendChild(linkText);
+
+            homeLink.href = "index.html";
+            document.body.appendChild(homeLink);
+          }
+
+      </script>
+  </body>
+</html>
